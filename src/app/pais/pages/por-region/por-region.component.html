@@ -1,1 +1,24 @@
-<p>por-region works!</p>
+<h3>Buscar por region: <small> {{regionActiva | titlecase}}</small></h3>
+
+
+<hr>
+
+<h5>Seleccione la region</h5>
+
+<div class="row">
+    <div class="col">
+
+        <!-- [class]=" (item === regionActiva)? 'btn btn-primary': 'btn btn-outline-primary' " -->
+
+        <button *ngFor="let item of regions" [class]="getClaseCSS(item)" (click)="activarRegion(item)">
+            {{item | titlecase}}
+        </button>
+    </div>
+</div>
+
+
+<div class="row" *ngIf="paises.length>0">
+    <div class="col">
+        <app-pais-tabla [data]="paises"></app-pais-tabla>
+    </div>
+</div>
